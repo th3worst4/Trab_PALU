@@ -1,0 +1,4 @@
+﻿  Source.cpp
+G:\Outros computadores\CAIODESKTOP\Visual Studio\C e C++\Sistema_linear\fatoracao_pa_lu\Source.cpp(14,12): warning C4326: return type of 'main' should be 'int' instead of 'void'
+G:\Outros computadores\CAIODESKTOP\Visual Studio\C e C++\Sistema_linear\fatoracao_pa_lu\Source.cpp(17): error C4700: uninitialized local variable 'x_ptr' used
+G:\Outros computadores\CAIODESKTOP\Visual Studio\C e C++\Sistema_linear\fatoracao_pa_lu\Source.cpp(17): error C4700: uninitialized local variable 'A_ptr' used
