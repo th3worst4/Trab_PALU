@@ -51,7 +51,6 @@ void print_matrix(float **Matrix, int n){
 }
 
 int main(){
-	const int n = 4;
 	int line;
 	
 	//ifstream input1("A_matrix.txt");
@@ -71,6 +70,7 @@ int main(){
 
 	vector<vector<float>> A = { {2, -1, 4, 0}, {4, -1, 5, 1}, {-2, 2, -2, 3}, {0, 3, -9, 4} };
 	vector<float> x = { 5, 9, 1, -2 };
+	int n = x.size();
 
 	float **U = new float* [n];
 	for(int i=0; i<n; i++){
