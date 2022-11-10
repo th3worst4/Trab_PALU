@@ -80,9 +80,7 @@ int main(){
 		}
 	}
 
-	float **L = new float* [n];
 	for(int i=0; i<n; i++){
-		L[i] = new float[n];
 		for(int j=0; j<n; j++){
 			if(i==j){
 				L[i][j] = 1;
