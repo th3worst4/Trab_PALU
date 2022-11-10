@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int find_piv(float **U, int n, int p){
+int find_piv(vector<vector<float>> U, int n, int p){
 	float par = fabs(U[p][p]);
 	int line = p;
 
@@ -19,7 +19,7 @@ int find_piv(float **U, int n, int p){
 	return line;
 }
 
-void ch_line(float **U, int n, int p, int line){
+void ch_line(vector<vector<float>> U, int n, int p, int line){
 	float temp[n];
 
 	for(int i=0; i<n; i++){
@@ -29,7 +29,7 @@ void ch_line(float **U, int n, int p, int line){
 	}
 }
 
-void piv(float **U, float **L, int n, int p){
+void piv(vector<vector<float>> U, vector<vector<float>> L, int n, int p){
 	float pivo = U[p][p];
 
 	for(int i=p+1; i<n; i++){
@@ -41,7 +41,7 @@ void piv(float **U, float **L, int n, int p){
 	}
 }
 
-void print_matrix(float **Matrix, int n){
+void print_matrix(vector<vector<float>> Matrix, int n){
 		for(int i=0; i<n; i++){
 			for(int j=0; j<n; j++){
 				cout<<Matrix[i][j]<<' ';
@@ -52,7 +52,9 @@ void print_matrix(float **Matrix, int n){
 
 int main(){
 	int line;
-	
+	vector<vector<float>> U;
+	vector<vector<float>> L;
+
 	//ifstream input1("A_matrix.txt");
 	//ifstream input2("b_vector.txt");
 
@@ -70,14 +72,11 @@ int main(){
 
 	vector<vector<float>> A = { {2, -1, 4, 0}, {4, -1, 5, 1}, {-2, 2, -2, 3}, {0, 3, -9, 4} };
 	vector<float> x = { 5, 9, 1, -2 };
-	int n = x.size();
+	int n = 4;
 
-	float **U = new float* [n];
+	
 	for(int i=0; i<n; i++){
-		U[i] = new float[n];
-		for(int j=0; j<n; j++){
-			U[i][j] = A[i][j];
-		}
+		U[i] = A[i];
 	}
 
 	for(int i=0; i<n; i++){
@@ -97,7 +96,7 @@ int main(){
 	}
 	
 	cout<<"L="<<endl;
-	print_matrix(L, n);
+	//print_matrix(L, n);
 	cout<<endl;
 	cout<<"U="<<endl;
 	print_matrix(U, n);
