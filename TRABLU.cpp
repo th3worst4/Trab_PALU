@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-#include <string>
+#include <tuple>
 #include <fstream>
 #include <vector>
 
@@ -19,7 +19,7 @@ int find_piv(vector<vector<float>> U, int n, int p){
 	return line;
 }
 
-void ch_line(vector<vector<float>> U, int n, int p, int line){
+vector<vector<float>> ch_line(vector<vector<float>> U, int n, int p, int line){
 	float temp[n];
 
 	for(int i=0; i<n; i++){
@@ -27,6 +27,7 @@ void ch_line(vector<vector<float>> U, int n, int p, int line){
 		U[line][i] = U[p][i];
 		U[p][i] = temp[i];
 	}
+	return U;
 }
 
 void piv(vector<vector<float>> U, vector<vector<float>> L, int n, int p){
@@ -74,26 +75,24 @@ int main(){
 
 	
 	vector<vector<float>> U;
-	for(int i=0; i<n; i++){
-		for(int j=0; j<n; j++){
-			U[i].push_back(A[i][j]);
-		
-	}
+	U = A;
 
 	vector<vector<float>> L;
 	for(int i=0; i<n; i++){
+		vector<float> temp;
 		for(int j=0; j<n; j++){
 			if(i==j){
-				L[i].push_back(1);
+				temp.push_back(1);
 			}else{
-				L[i].push_back(0);
+				temp.push_back(0);
 			}
 		}
+		L.push_back(temp);
 	}
 
 	for(int p=0; p<n-1; p++){
 		line = find_piv(U, n, p);
-		ch_line(U, n, p, line);
+		U = ch_line(U, n, p, line);
 		piv(U, L, n, p);
 	}
 	
