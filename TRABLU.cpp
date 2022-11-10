@@ -76,7 +76,7 @@ int main(){
 	vector<vector<float>> U;
 	for(int i=0; i<n; i++){
 		for(int j=0; j<n; j++){
-			U[i][j] = A[i][j];
+			U[i].push_back(A[i][j]);
 		}
 	}
 
@@ -84,9 +84,9 @@ int main(){
 	for(int i=0; i<n; i++){
 		for(int j=0; j<n; j++){
 			if(i==j){
-				L[i][j] = 1;
+				L[i].push_back(1);
 			}else{
-				L[i][j] = 0;
+				L[i].push_back(0);
 			}
 		}
 	}
