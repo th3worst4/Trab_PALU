@@ -52,8 +52,6 @@ void print_matrix(vector<vector<float>> Matrix, int n){
 
 int main(){
 	int line;
-	vector<vector<float>> U;
-	vector<vector<float>> L;
 
 	//ifstream input1("A_matrix.txt");
 	//ifstream input2("b_vector.txt");
