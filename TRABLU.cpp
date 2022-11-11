@@ -19,15 +19,19 @@ int find_piv(vector<vector<float>> U, int n, int p){
 	return line;
 }
 
-vector<vector<float>> ch_line(vector<vector<float>> U, int n, int p, int line){
-	vector<float> temp;
+ tuple<vector<vector<float>>,vector<vector<float>>> ch_line(vector<vector<float>> U, vector<vector<float>> L, int n, int p, int line){
+	vector<float> temp1, temp2;
 
 	for(int i=0; i<n; i++){
-		temp.push_back(U[line][i]);
+		temp1.push_back(U[line][i]);
 		U[line][i] = U[p][i];
-		U[p][i] = temp[i];
+		U[p][i] = temp1[i];
+		temp2.push_back(L[line][i]);
+		L[line][i] = L[p][i];
+		L[p][i] = temp2[i];
+		
 	}
-	return U;
+	return {U, L};
 }
 
 tuple<vector<vector<float>>,vector<vector<float>>> piv(vector<vector<float>> U, vector<vector<float>> L, int n, int p){
@@ -94,7 +98,9 @@ int main(){
 	for(int p=0; p<n-1; p++){
 		tuple<vector<vector<float>>, vector<vector<float>>> temp;
 		line = find_piv(U, n, p);
-		U = ch_line(U, n, p, line);
+		temp = ch_line(U, L, n, p, line);
+		U = get<0>(temp);
+		L = get<1>(temp);
 		temp = piv(U, L, n, p);
 		U = get<0>(temp);
 		L = get<1>(temp);
