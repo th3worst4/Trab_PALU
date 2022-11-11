@@ -20,10 +20,10 @@ int find_piv(vector<vector<float>> U, int n, int p){
 }
 
 vector<vector<float>> ch_line(vector<vector<float>> U, int n, int p, int line){
-	float temp[n];
+	vector<float> temp;
 
 	for(int i=0; i<n; i++){
-		temp[i] = U[line][i];
+		temp.push_back(U[line][i]);
 		U[line][i] = U[p][i];
 		U[p][i] = temp[i];
 	}
