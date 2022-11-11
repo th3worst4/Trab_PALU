@@ -30,7 +30,7 @@ vector<vector<float>> ch_line(vector<vector<float>> U, int n, int p, int line){
 	return U;
 }
 
-void piv(vector<vector<float>> U, vector<vector<float>> L, int n, int p){
+tuple<vector<vector<float>>,vector<vector<float>>> piv(vector<vector<float>> U, vector<vector<float>> L, int n, int p){
 	float pivo = U[p][p];
 
 	for(int i=p+1; i<n; i++){
@@ -40,6 +40,7 @@ void piv(vector<vector<float>> U, vector<vector<float>> L, int n, int p){
 			L[i][p] = coef/pivo;
 		}
 	}
+	return {U, L};
 }
 
 void print_matrix(vector<vector<float>> Matrix, int n){
@@ -91,9 +92,12 @@ int main(){
 	}
 
 	for(int p=0; p<n-1; p++){
+		tuple<vector<vector<float>>, vector<vector<float>>> temp;
 		line = find_piv(U, n, p);
 		U = ch_line(U, n, p, line);
-		piv(U, L, n, p);
+		temp = piv(U, L, n, p);
+		U = get<0>(temp);
+		L = get<1>(temp);
 	}
 	
 	cout<<"L="<<endl;
