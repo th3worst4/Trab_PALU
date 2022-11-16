@@ -108,8 +108,8 @@ void print_vector(vector<float> b, int n){
 int main(){
 	int line;
 	
-	vector<vector<float>> A = { {3, 1, 6}, {2, 1, 3}, {1, 1, 1}};
-	vector<float> b = { 2, 7, 4};
+	vector<vector<float>> A = { {2, -1, 4, 0}, {4, -1, 5, 1}, {-2, 2, -2, 3}, {0, 3, -9, 4}};
+	vector<float> b = { 5, 9, 1, -2};
 	int n = b.size();
 
 	vector<float> c, x;
