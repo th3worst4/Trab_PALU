@@ -3,6 +3,7 @@
 #include <tuple>
 #include <fstream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -24,15 +25,13 @@ vector<float> read_b(){
 
 void write_x(vector<float> x){
 	ofstream vectorx("x_vector.txt");
-
 	int n = x.size();
-	for(int i=0; i<n; i++){
-		float vIn = x[i];
-		char vOut [17];
-		char* buffer = _gcvt_s(vOut,sizeof(vOut),vIn,8);
-		vectorx.write(buffer, 64);
-	}
 
+	for(int i=0; i<n; i++){
+		vectorx<<x[i];
+		vectorx<<endl;
+	}
+	vectorx.close();
 }
 
 int find_piv(vector<vector<float>> U, int n, int p){
