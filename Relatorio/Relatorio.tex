@@ -1,0 +1,424 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[top=3cm, bottom=2cm, left=3cm, right=2cm]{geometry}
+\usepackage[utf8]{inputenc} 
+\usepackage{indentfirst}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{times}
+\usepackage{titlesec}
+\usepackage{cancel}
+\usepackage{graphicx} %permite usar figuras
+\usepackage{float} %adiciona o H que força figuras
+\usepackage[brazil]{babel} %adiciona tradução
+\title{Relatório Científico - Coeficiente de Restituição}
+\author{Caio Silva Couto \\ caio\_\! couto@id.uff.br}
+\date{ \vspace{500pt} Universidade Federal Fluminense\\ Niterói - RJ ,  Fevereiro de 2022}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{lipsum}
+\usepackage{longtable}
+
+\begin{document}	
+	\maketitle
+	\newpage		
+		\noindent \textbf{\Large Resumo} \vspace{25pt} \\		
+		\noindent Neste trabalho houve a busca de encontrar e justificar as relações físicas ligadas ao tema Coeficiente de Restituição. Proposto um experimento prático de comparar o coeficiente em duas situações distintas, fez-se necessário o uso do \textsl{software} Tracker\copyright \, bem como desenvolver raciocínios pertinentes ao assunto para que assim fossem alcançados valores e conclusões lógicas. Durante o relatório será descrito o movimento de queda livre, relacionando a posição com o tempo e aceleração; será descrito o funcionamento do Tracker\copyright, bem como configurá-lo para os mesmos propósitos deste trabalho; também será encontrado um valor aproximado para a aceleração gravitacional e discutido o quão bem este valor se aproxima do real e porque se difere ou não. Por fim, a comparação entre os coeficientes nas diferentes situações de colisão, a primeira sem amortecimento e a segunda com e as conclusões que serão obtidas desses dados.
+	\newpage
+	\tableofcontents 
+	\newpage
+	\listoffigures
+	\newpage
+	\listoftables
+	\newpage
+	\section{Introdução}
+	Neste relatório será analisado o movimento de queda livre e o coeficiente de restituição de um material após colidir com um anteparo em duas diferentes situações. Como objeto experimental foi utilizada uma pequena esfera de plástico, uma bola de \textsl{ping-pong}. E para obter resultados experimentais foi utilizado o \textsl{software} Tracker\copyright.  \\		
+		\subsection{Descrevendo o movimento de queda livre}
+		O movimento de queda livre consiste em um movimento uniformente variado. Ou seja, um movimento de aceleração constante, nesse caso a gravidade $g$. Em um caso teórico e ideal de queda livre, a massa do corpo em estudo e a permissividade do fluido em que o corpo está imerso  não altera os resultados obtidos. Assim, a resistência do ar não influenciaria nos dados extraídos.\\
+		Considerando um cenário ideal, o movimento de velocidade do corpo sujeito a um movimento de queda livre poderia ser descrito pela função linear:
+		$$v(t)=-gt$$
+		Como a velocidade instantânea de um corpo é a derivada temporal da posição, pode-se reescrever a equação como:
+		$$\dfrac{ds}{dt}=-gt$$
+		Resolvendo a equação diferencial, obtém-se:
+		$$ds = -gt \, dt$$
+		$$ \int ds = \int -gt \, dt $$
+		Logo, a relação entre posição e tempo fica dada por:
+		$$s(t) =s_0 - \dfrac{gt^2}{2}$$
+		Onde $g$ é a gravidade já orientada negativamente, $s_0$ e $s$ são respectivamente a posição inicial e instantânea, e $t$ o tempo. \\
+		
+		\newpage
+		\subsection{Sobre o \textsl{software} Tracker\copyright}
+		O Tracker\copyright \,  é um \textsl{software} \textsl{open source} escrito na linguagem \textsl{Java} e utilizado para propósitos educacionais em estudos de Física. Nele o usuário é capaz de exportar um vídeo e realizar uma análise quadro a quadro de movimentos cinemáticos, por exemplo. O Tracker\copyright \, como resposta, gerará gráficos e tabelas com dados como: posição, velocidade e aceleração. \\
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[scale=0.3]{Tracker.png}
+			\caption{\textsl{Software} Tracker\copyright}
+			\label{Software Tracker}
+		\end{figure}
+		
+		\subsection{Relação entre $R$ e as alturas de cada quique}
+		Como proposto, uma pequena bola de \textsl{ping-pong} foi lançada de uma altura $h_0$ visando atingir um anteparo e comparar o coeficiente de restituição $R$ em cada quique. Definido como a razão da rapidez antes do impacto e logo após o mesmo, com auxílio do Tracker\copyright \, o coeficiente pôde ser calculado para este relatório.
+		$$R = \dfrac{|v_{ap \acute{o} s}|}{|v_{antes}|}$$ \\
+		Utilizando o Teorema da Conservação da Energia Mecânica, e definindo algumas convenções, tais como, a energia cinética $K$ no ponto $h_0$ é igual a 0 Joules e a energia potencial gravitacional $U$ no ponto $h=0$ é 0 Joules.Pode-se fazer algumas deduções: \\
+		Considerando um cenário ideal, é possível supor que a Energia Cinética logo antes do primeiro quique será igual à Energia Potencial Gravitacional em $h_0$:
+		$$K_0 = \dfrac{m{v_0}^2}{2} = U_{0} = mgh_0$$
+		O mesmo vale para o cenário logo após o primeiro quique, onde pode-se supor que a Energia Cinética logo após o primeiro quique será igual à Energia Potencial Gravitacional em $h_1$ a altura após a primeira colisão.
+		$$K_1 = \dfrac{m{v_1}^2}{2} = U_{1} = mgh_1$$
+		Dividindo $K_1$ por $K_0$ obtém-se:
+		$$\dfrac{\dfrac{\cancel{m}{v_1}^2}{\cancel{2}}}{\dfrac{\cancel{m}{v_0}^2}{\cancel{2}}}=\dfrac{\cancel{mg}h_1}{\cancel{mg}h_0}$$
+		Logo,
+		$${\left(\dfrac{v_1}{v_0}\right)}^2= \dfrac{h_1}{h_0}$$
+		E como, ${\left(\dfrac{v_1}{v_0}\right)}^2 = R^2$,
+		$$R= \sqrt{\dfrac{h_1}{h_0}}$$
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[scale=0.6]{diagrama_inicial.png}
+			\caption{Referencial mecânico utilizado nos cálculos}
+			\label{ref mec}
+		\end{figure}
+		
+		\subsection{Explicitando o aparato experimental}
+		Para a aquisição de dados empíricos foi gravado um vídeo em 60 quadros por segundo, a câmera utilizada foi a de um \textsl{Samsung Galaxy S10}, suas especificações técnicas podem ser averiguadas no \textsl{site} do fabricante. Após a filmagem, os arquivos de vídeo foram enviados para o Tracker\copyright \, onde foi possível obter os dados experimentais. \\
+		O anteparo de colisão consistia de uma mesa de granito polido negro, portanto rígido e liso, o amortecedor, posicionado acima do anteparo, utilizado na segunda etapa de testes foi uma toalha de mesa. E de corpo de testes, uma pequena bola de plástico usada para jogar \textsl{ping-pong}.
+		
+		
+		
+		
+		
+	\newpage
+	\section{Experimentações}
+		A premissa desta pesquisa é ser capaz de comparar, em duas situações distintas, o coeficiente de restituição de um objeto após o movimento de queda livre. Na primeira, o corpo deve colidir diretamente com o anteparo, este que deve ser rígido e liso. Na segunda, o corpo deve colidir contra o mesmo anteparo, porém haverá um amortecedor na superfície de impacto.
+		\subsection{Configurando o Tracker\copyright}
+		Após gravar o experimento, o vídeo foi importado para dentro do \textsl{software}. O primeiro passo foi definir um eixo vertical e horizontal usando como referefencial um objeto presente no próprio vídeo, neste caso em específico uma régua perpendicular ao plano do anteparo.
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[scale=0.3]{Eixo.png}
+			\caption{Eixo $xOy$ em roxo}
+			\label{g1}
+		\end{figure} \\
+		É importante perceber que o eixo deve ser paralelo ao sentido do vetor gravidade. Para isso, o eixo foi posicionado de modo a permanecer paralelo à régua que estava disposta de modo ortogonal ao solo.\\
+		\newpage
+		\noindent O segundo passo foi definir no programa uma distância de referência, para que assim o mesmo pudesse converter \textsl{pixels} em metros. Para isso foi utilizada a mesma régua, que possui $30 \pm 0,05 $ centímetros.
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[scale=0.3]{Regua.png}
+			\caption{Ferramenta de definição de distâncias selecionada}
+			\label{g1}
+		\end{figure} \\
+		O terceiro e último passo foi navegar quadro a quadro no vídeo definindo no \textsl{software} onde seria o centro de massa do corpo do experimento, a bola de \textsl{ping-pong}. Assim o Tracker\copyright \, será capaz de gerar os gráficos de tempo $t$ em segundos , altura $y$ em metros, velocidade $v$ em $m/s$ e aceleração $a$ em $m/s^2$.
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[scale=0.3]{Centrosdemassa.png}
+			\caption{Pontos de \textsl{tracking}}
+			\label{g1}
+		\end{figure} \\
+		\newpage
+		
+		\noindent Os gráficos obtidos com o experimento do abandono da bola sem o amortecedor foram os seguintes:
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[scale=0.45]{grafico_altura_x_tempo.png}
+			\includegraphics[scale=0.45]{grafico_velocidade_x_tempo.png}
+			\caption{Gráficos obtidos do Tracker\copyright \, no experimento 1}
+			\label{g1}
+		\end{figure} \\
+		
+		\subsection{Obtendo a gravidade $g$}
+		Para a obtenção do valor da gravidade $g$, será analisado somente o intervalo de tempo que compreende o abandono da bola e o primeiro quique. Pois, em um cenário ideal, neste intervalo a bola não está sujeita a nenhuma outra força senão a gravitacional.
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[scale=0.6]{grafico_altura_x_tempo_primeiro_quique.png}
+			\caption{Gráfico de deslocamento \textsl{versus} tempo}
+			\label{g1}
+		\end{figure} \\
+		\newpage		
+		\noindent O primeiro passo para coletar o valor da gravidade será linearizar o gráfico deslocamento \textsl{versus} tempo apresentado anteriormente. Para isso basta apenas elevar os valores do tempo ao quadrado, visto que a relação entre a altura e o tempo é de segunda ordem. Ou seja, \\
+		\begin{center}
+		$s(t) = s_0-\dfrac{gt^2}{2}$, é a função deslocamento, \\
+		se $t^2=T$, a função linearizada será dada por $s(T) = s_0-\dfrac{gT}{2}$
+		\end{center}
+		
+		\noindent O segundo passo será aplicar o Método dos Mínimos Quadrados(MMQ) nos dados linearizados, assim será possível obter os valores de $B$ e $A$, sendo $B \pm \sigma_B = -\dfrac{g}{2}$ e $A \pm \sigma_{A} =s_0$. Após empregar o MMQ, os dados obtidos serão: $B=-4.81218280 \, m/s^2$ e $A = -0.012477234 \, m$. Porém ainda é necessárip calcular as incertezas $\sigma_B \, \mathrm{e} \, \sigma_{A}$.
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[scale=0.6]{grafico_altura_x_tempo_primeiro_quique_linearizado.png}
+			\caption{Gráfico de deslocamento \textsl{versus} tempo linearizado}
+			\label{g1}
+		\end{figure} \\	
+		Utilizando as fórmulas de cálculo da incerteza do MMQ é possível coletar as incertezas como $\sigma_B = 0.01548893 \, m/s^2 \, \mathrm{e} \, \sigma_{A}= 0.00045860 \, m$ \\
+		Como $B \pm \sigma_B = -\dfrac{g}{2}$ assim, obtém-se que $g=-2B\pm2\sigma_B$ e pela definição de multiplicação da incerteza por uma constante, é possível calcular $\sigma_g$, ou seja, a incerteza da gravidade, como sendo ${\sigma_g}^2=4{\sigma_B}^2$. logo, \\
+		$${\sigma_g}^2=4 \cdot {0.01548893}^2$$
+		$$\sigma_g =\sqrt{4 \cdot {0.01548893}^2}$$
+		$$\sigma_g=2 \cdot 0.01548893 = 0.06195572 \, m/s^2$$
+		Assim, conclui-se que o valor da gravidade é aproximadamente:
+		$$g = 9.6243656 \pm 0.06195572 \, m/s^2$$
+		Segundo a tabela de constantes do livro Física - Uma Abordagem Estratégica(Randall, 2009) a aceleração gravitacional possui o valor de $g_{te \acute{o} rico} = 9.80 m/s^2$. \\
+		Assim, o erro relativo $\delta g = \left| \dfrac{g_{te \acute{o} rico}-g}{g_{te \acute{o} rico}} \right|$ do experimento foi de 1,16 \%. Vale ressaltar que para obter o valor $g$ empiricamente fatores como a resistência do ar tiveram que ser desconsiderados, esse é um dos fatores que justifica o pequeno erro relativo entre os valores.\\
+		Visto que $A \pm \sigma_{A} =s_0$, não há necessidade de cálculos de incerteza adicionais, sendo:  $$\sigma_{s_0} = \sigma_{A} = \pm0.00045860 \, m$$		
+		\noindent Concluindo em uma tabela de dados, obtém-se:
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{c|c|c}
+				\hline \,  & \ valor verdadeiro & \ incerteza \\
+				\hline $B$ & \ $-4.81218280 \, m/s^2$ & \ $\sigma_B = \pm 0.01548893 \, m/s^2$ \\
+				\hline $A$ & \ $-0.012477234 \, m$ & \ $\sigma_{A}= \pm 0.00045860 \, m$ \\
+				\hline $g$ & \ $9.6243656 \, m/s^2$ & \ $\sigma_g = \pm 0.06195572 \, m/s^2$ \\
+				\hline $s_0$ & \ $-0.012477234 \, m$ & \ $\sigma_{s_0} = \pm 0.00045860 \, m$ \\
+				
+				\hline
+			\end{tabular}	
+			\caption{Tabela resumo de dados obtidos}
+			\label{tcm}		
+		\end{table}
+		\noindent Para avaliar se tais dados obtidos são ou não próximos do resultado experimental, deve-se aferir a qualidade da linearização do MMQ. Para tal o resíduo de cada ponto é calculado e somado, espera-se que a soma seja aproximadamente zero. Ou seja: \\
+			O resíduo é dado por: $\Delta y_i = \dfrac{y_i - f(x_i)}{\sigma_y}$	onde $n$ é o número de elementos do conjunto a ser analisado e $1 \le i \le n$, assim $y_2$ seria o segundo dado do rol, $f(x_i)$ é a função linearizada obtida do MMQ, $f(x)=A+Bx$ e $\sigma_y$ é a incerteza em $y$ calculada a partir da fórmula \:\: $\sigma_y = \sqrt{\dfrac{\sum{(y_i-A-B \cdot x)}^2}{n-2}}$.\\
+			Espera-se que somatório $\displaystyle\sum\limits_{i=1}^n\dfrac{y_i - f(x_i)}{\sigma_y}$ seja aproximadamente zero, se sim, a linearização é considerada boa. 
+			\newpage
+			A tabela contendo os dados brutos utilizados é apresentada a seguir:
+			\begin{table}[H]
+			\centering
+			\begin{tabular}{c|c|c|c}
+				\hline i  & \ Tempo(s) & \ Tempo($\mathrm{s}^2$) & \ Altura(m) \\
+				\hline 1 & \ 0.0 & \ 0.0  &\ -0.009858637043318935 \\
+				\hline 2 & \ 0.016744444444444527 & \ 0.00028038 &\ -0.012561984741813359\\
+				\hline 3 & \ 0.033488888888889054 & \ 0.00112151 &\ -0.01758248761044587\\
+				\hline 4 & \ 0.05024444444444452 & \ 0.0025245 &\ -0.025199087510421353\\
+				\hline 5 & \ 0.06698888888888906 & \ 0.00448751 &\ -0.035176779303422556\\
+				\hline 6 & \ 0.08374444444444452 & \ 0.00701313 &\ -0.04668584927167782\\
+				\hline 7 & \ 0.1004777777777781 & \ 0.01009578 &\ -0.06142874904168133\\
+				\hline 8 & \ 0.11722222222222263 & \ 0.01374105 &\ -0.07917483209816706\\
+				\hline 9 & \ 0.1339777777777781 & \ 0.01795004 &\ -0.09910504845391255\\
+				\hline 10 & \ 0.15072222222222262 & \ 0.02271719 &\ -0.12476861472021497\\
+				\hline 11 & \ 0.16746666666666715 & \ 0.02804508 &\ -0.14715598103762775\\
+				\hline 12 & \ 0.1842111111111117 & \ 0.03393373 &\ -0.1758227305904124\\
+				\hline 13 & \ 0.2009555555555544 & \ 0.04038314 &\ -0.20612758011764185\\
+				\hline 14 & \ 0.2177333333333354 & \ 0.0474078 &\ -0.23998164625616844\\
+				\hline 15 & \ 0.2344555555555544 & \ 0.05496941 &\ -0.27601984569395477\\
+				\hline 16 & \ 0.2512000000000007 & \ 0.06310144 &\ -0.3165268968164109\\
+
+
+				\hline
+			\end{tabular}	
+			\caption{Tabela de dados brutos obtidos do Tracker\copyright}
+			\label{tcm}		
+		\end{table}
+		\noindent Assim, com os dados na tabela acima, calcula-se que o somatório $\displaystyle\sum\limits_{i=1}^n\dfrac{y_i - f(x_i)}{\sigma_y}$ seja aproximadamente: $-6.33774143 \cdot 10^{-6}$ que é um valor aceitável de aproximação linear. \\
+		\noindent Outra maneira de se avaliar a aproximação linear realizada pelo MMQ é coletar o número de ocorrências dos resíduos e verificar se pelo menos 68\% dos mesmos se encontram no intervalo $[\mu-\sigma, \mu+\sigma]$, no qual $\mu$ que é a média aritmética  deve ser aproximadamente zero e $\sigma$,o desvio padrão. 
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.6]{histograma-Resíduos-gaussiana.png}
+			\caption{Histograma de resíduos}
+			\label{g1}
+		\end{figure}
+		\newpage
+		\noindent Realizando os cálculos, percebe-se que 13 dos 16 dados se encontram neste intervalo, logo  81,25\%, assim grande parte dos resíduos pode ser considerada pequena. Logo os valores de $A$ e $B$ do MMQ são bons para este fim.
+		\subsection{Calculando o coeficiente de restituição $R$ do caso sem amortecimento}
+		Como definido na introdução deste trabalho, o coeficiente de restituição pode ser calculado pela seguinte equação: 
+		$$R= \sqrt{\dfrac{h_i}{h_{i-1}}}$$
+		Onde  $h_i$ é a altura máxima após a colisão e $h_{i-1}$ a altura máxima anterior a colisão. Utilizando o \textsl{software} Tracker\copyright \, é possível medir a altura aproximada destes pontos.
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{c|c}
+				\hline \,  & \ Altura máxima(m) \\
+				\hline $h_0$ & \ $-0.00985863 \pm 0.0005$ \\
+				\hline $h_1$ & \ $-0.13050196 \pm 0.0005$\\
+				\hline $h_2$ & \ $-0.18225707 \pm 0.0005$\\
+				\hline $h_3$ & \ $-0.2132141 \pm 0.0005$\\
+				\hline
+			\end{tabular}	
+			\caption{Tabela com as alturas máximas, caso 1}
+			\label{tcm}		
+		\end{table}
+		\noindent A seguir é apresentado o gráfico contendo os pontos de altura máxima dispostos pelo tempo em segundos:
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[scale=0.6]{grafico_deslocamento_x_tempo_s_amortecedor.png}
+			\caption{Gráfico altura máxima, experimento não amortecido}
+			\label{g1}
+		\end{figure} \\
+		Cabe ressaltar que: a equação para o coeficiente de restituição foi calculada por meio do Príncípio da Conservação da Energia Mecânica. Logo há um problema, no \\ Tracker\copyright \, o eixo $xOy$ foi posicionado de forma que a reta $y=0$ coincida com a posição inicial da bola, ou seja, neste instante a bola não possui rapidez, logo $K=0 \mathrm{J}$ e nem altura relativa ao eixo, logo $U_g = 0 \mathrm{J}$. Portanto, é ilógico utilizar tal teorema dado este eixo, ademais o coeficiente de restituição do primeiro quique seria uma indeterminação, pois seria uma divisão por zero(altura inicial igual a zero). Para não perder o primeiro dado será necessária a mudança de referencial, para o anteparo, por exemplo. Assim as novas alturas ficam dadas pela seguinte expressão:
+		$$h_i = |h_{min}|- |h_{i \, antigo}|$$
+		Onde $h_{min}$ é o menor valor da altura dos dados experimentais. Neste trabalho, $h_{min} = -0.31773236 \pm 0.0005 m$. Logo, a nova tabela de alturas, será:
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{c|c}
+				\hline \,  & \ Altura máxima(m) \\
+				\hline $h_0$ & \ $0.30787373 \pm 0.0007$ \\
+				\hline $h_1$ & \ $0.18723040 \pm 0.0007$\\
+				\hline $h_2$ & \ $0.13547493 \pm 0.0007$\\
+				\hline $h_3$ & \ $0.10451850 \pm 0.0007$\\
+				\hline
+			\end{tabular}	
+			\caption{Tabela com as alturas máximas no eixo $xO'y$}
+			\label{tcm}		
+		\end{table}
+		É importante frisar que: como as novas alturas foram obtidas a partir de uma operação envolvendo incertezas, o cálculo de acúmulo de incertezas teve de ser feito para as mesmas. Assim as novas variações são distintas das anteriores.		
+		\noindent Com as alturas em um novo referencial, torna-se possível o cálculo de $R$:
+		$$R_1 = \sqrt{\dfrac{0.18723040}{0.30787373}} \approx 0.779833460964$$
+		$$R_2 = \sqrt{\dfrac{0.13547493}{0.18723040}} \approx 0.8506311550949$$
+		$$R_3 = \sqrt{\dfrac{0.10451850}{0.13547493}} \approx 0.878349010769$$
+		
+		\noindent Contudo, ainda se faz preciso deduzir a propagação de incertezas do coeficiente de restituição. Utilizando a fórmula geral do cálculo de incertezas: ${\sigma_f}^2 = {\sigma_1}^2{\left( \dfrac{\partial f}{\partial x_1} \right)}^2+{\sigma_2}^2{\left( \dfrac{\partial f}{\partial x_2} \right)}^2+ \hdots \\ + {\sigma_n}^2{\left( \dfrac{\partial f}{\partial x_n} \right)}^2$ e a equação antes proposta para o coeficiente , $R= \sqrt{\dfrac{h_i}{h_{i-1}}}$, segue-se o seguinte raciocínio: \\
+		$R$ é uma função de duas variáveis $(h_i,h_{i-1})$, logo será necessário derivar em relação as duas.
+		$$\dfrac{\partial R}{\partial h_i} = \dfrac{1}{2\sqrt{h_i \cdot h_{i-1}}}$$
+		$$\dfrac{\partial R}{\partial h_{i-1}} = -\dfrac{\sqrt{h_i}}{2\sqrt{h_{i-1}^3}}$$
+		Assim, a incerteza de $R$ fica dada por:
+		$${\sigma_R}^2 = {0.0007}^2{\left( \dfrac{1}{2\sqrt{h_i \cdot h_{i-1}}} \right) }^2+{0.0007}^2{\left( -\dfrac{\sqrt{h_i}}{2\sqrt{h_{i-1}^3}} \right) }^2$$
+		Deste modo, o coeficiente de restituição com suas respectivas incertezas fica dado por:
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{c|c}
+				\hline $R_1$ & \ $0.77983346 \pm 0.00180730$ \\
+				\hline $R_2$ & \ $0.85063116 \pm 0.00319946$\\
+				\hline $R_3$ & \ $0.87834901 \pm 0.00455191$\\
+				\hline
+			\end{tabular}	
+			\caption{Coeficiente de restituição sem amortecimento.}
+			\label{tcm}		
+		\end{table}
+		\noindent Para avaliar a qualidade dos dados acima há a possibilidade de se determinar o desvio-padrão dos mesmos: $\sigma = 0.05080339$. \\
+		Qualquer pequena variação no valor experimental de $R$ pode ser justificada por alguns fatores:
+		\begin{enumerate}
+			\item Pequenas variações na superfície ou da bola ou do anteparo, que acarretam em uma colisão diferente da anterior;
+			\item Aproximações numéricas realizadas pelo Tracker\copyright ;
+			\item Presença de um fluido, ar atmosférico, no qual o objeto teve que percorrer.
+			\item Eventuais pequenos erros de posicionamento de centro de massa;
+		\end{enumerate}		
+		\subsection{Calculando o coeficiente de restituição $R$ do caso com amortecimento}
+		O experimento do caso amortecido consistiu em um processo similar ao caso não amortecido. A única diferença foi que, em vez de colidir diretamente com o anteparo, o corpo de teste, no caso a bola de \textsl{ping-pong}, colidiu com um mediador acima do anteparo. No caso deste experimento, foi utilizada uma toalha de mesa.		
+		Análogo ao caso com amortecimento, para determinar o coeficiente $R$ do caso amortecido será utilizada a mesma equação: 
+		$$R= \sqrt{\dfrac{h_i}{h_{i-1}}}$$
+		Onde  $h_i$ é a altura máxima após a colisão e $h_{i-1}$ a altura máxima anterior a colisão.\\
+		Afim de evitar acúmulo desnecessário de incertezas, para este caso, o eixo de referência do Tracker\copyright \, foi posicionado de modo a coincidir com o anteparo. Assim, as alturas medidas medidas pelo \textsl{software} poderão ser usadas diretamente nos cálculos, sem necessitar de uma conversão, como no caso anterior.
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{c|c}
+				\hline \,  & \ Altura máxima(m) \\
+				\hline $h_0$ & \ $0.35151429 \pm 0.0005$ \\
+				\hline $h_1$ & \ $0.20012344 \pm 0.0005$\\
+				\hline $h_2$ & \ $0.12967665 \pm 0.0005$\\
+				\hline $h_3$ & \ $0.07966481 \pm 0.0005$\\
+				\hline
+			\end{tabular}	
+			\caption{Tabela com as alturas máximas, caso 2}
+			\label{tcm}		
+		\end{table}
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[scale=0.6]{grafico_deslocamento_x_tempo_c_amortecedor.png}
+			\caption{Gráfico altura máxima, experimento amortecido}
+			\label{g1}
+		\end{figure}
+		\newpage		
+		\noindent Desse modo, os coeficientes ficam dados por:
+		$$R_1 = \sqrt{\dfrac{0.20012344}{0.35151429}} \approx 0.75319645488$$
+		$$R_2 = \sqrt{\dfrac{0.12967665}{0.20012344}} \approx 0.8049741080918$$
+		$$R_3 = \sqrt{\dfrac{0.07966481}{0.12967665}} \approx 0.7837951369064$$		
+		A dedução da incerteza associada a $R$ neste caso é análoga à anterior, portanto, a mesma fica dada por:
+		 $${\sigma_R}^2 = {0.0005}^2{\left( \dfrac{1}{2\sqrt{h_i \cdot h_{i-1}}} \right) }^2+{0.0005}^2{\left( -\dfrac{\sqrt{h_i}}{2\sqrt{h_{i-1}^3}} \right) }^2$$
+		E os coeficientes de restituição do caso amortecido associados às suas respectivas incertezas são apresentados abaixo:	
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{c|c}
+				\hline $R_1$ & \ $0.75319645 \pm 0.00110199$\\
+				\hline $R_2$ & \ $0.80497411 \pm 0.00202667$\\
+				\hline $R_3$ & \ $0.78379514 \pm 0.00303244$\\
+				\hline
+			\end{tabular}	
+			\caption{Coeficiente de restituição com amortecimento.}
+			\label{tcm}		
+		\end{table} 
+		\noindent Para avaliar a qualidade dos dados acima há a possibilidade de se determinar o desvio-padrão dos mesmos: $\sigma = 0.02603125$. \\
+		As variações de $R$ nessa segunda etapa possuem suas justificatvas associadas às justificativas já apresentadas na subseção anterior.
+		\subsection{Comparando os dois experimentos}
+		O método utilizado neste relatório para comparar os dois experimentos foi calcular a razão entre a média aritmética do coeficiente de restituição do caso amortecido e a média aritmética do coeficiente de restituição do caso não amortecido, ou seja:
+		$$q = \dfrac{\dfrac{\sum\limits_{i=1}^n R_{i(amortecido)}}{n}}{\dfrac{\sum\limits_{i=1}^n R_{i(n\tilde{a}o \, amortecido)}}{n}}$$
+		Assim, calculando as médias e realizando a propagação de incertezas, a razão $q$ fica dada por:
+		$$ q = 0.93748516 \pm 0.00828975 $$
+		Deste modo, se a média aritmética dos coeficientes calculados experimentalmente, $R_1$, $R_2$ e $R_3$, for considerada uma aproximação suficientemente boa para um caso genérico em que se mantém imutáveis o antemparo, o corpo de testes e o amortecedor, pode-se supor, então, que se o corpo de testes, no caso a bola de \textsl{ping pong}, for lançado duas vezes, na primeira sem amortecimento e na segunda com amortecimento, da mesma altura arbitrária $h_0$ a relação entre as alturas máximas após os quiques será:
+		$$ q = 0.93748516 \pm 0.00828975 = \sqrt{\dfrac{h_{amortecido}}{h_{n\tilde{a}o \, amortecido}}}$$
+		Tendo esta relação, fica evidente que: independentemente da altura $h_0$ que a bola seja lançada, se a mesma for mantida igual nos dois experimentos, a altura máxima após o quique quando há o amortecedor será sempre menor que a altura máxima após o quique quando não há o amortecedor. Este resultado já era esperado e intuitivo, visto que o amortecedor visa dissipar mais Energia Mecânica na colisão, assim haverá menos energia disponível no sistema pra ser convertida em Energia Potencial Gravitacional, acarretando em uma menor altura.
+		
+	\newpage	
+	\section{Conclusões}
+		\subsection{Síntese dos métodos}
+		Neste relatório, foram utilizadas diversas ferramentas e técnicas para se obter valores e relações entre fenômenos físicos. Destaca-se entre o material utilizado o \textsl{software} Tracker\copyright \, que teve suas funcionalidades e configurações para este experimento aprofundadas anteriormente. \\
+		Com o uso do Tracker\copyright \,  e o Método dos Mínimos Quadrados, a equação que determinava o movimento de queda livre do corpo pôde ser linearizada, assim possibilitando encontrar um valor aproximado para a gravidade $g$ e sua incerteza:
+		Também com o uso do programa e tendo em vista que a relação $R= \sqrt{\dfrac{h_1}{h_0}}$, na qual $R$ é o coeficiente de restituição, $h_1$ a altura máxima após o quique e $h_0$
+a altura máxima anterior ao quique, pode ser deduzida a partir do Teorema da Conservação da Energia Mecânica. Foi possível calcular o coeficiente para o lançamento sem amortecedor e com amortecedor, bem como uma relação entre as alturas máximas após o quique do lançamento nas duas situações.
+		\subsection{Síntese dos resultados}
+		Durante a pesquisa, diversos valores constantes e suas incertezas associadas foram encontrados, estes são alguns deles:		
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{c|c}
+				\hline $g$ & \ $9.6243656 \pm 0.06195572 \, m/s^2$ \\
+				\hline $q$ & \ $0.93748516 \pm 0.00828975$\\
+				\hline $R_{1}^{amortecido}$ & \ $0.75319645 \pm 0.00110199$\\
+				\hline $R_{2}^{amortecido}$ & \ $0.80497411 \pm 0.00202667$\\
+				\hline $R_{3}^{amortecido}$ & \ $0.78379514 \pm 0.00303244$\\
+				\hline $R_{1}^{n\tilde{a}o \, amortecido}$ & \ $0.77983346 \pm 0.00180730$\\
+				\hline $R_{2}^{n\tilde{a}o \, amortecido}$ & \ $0.85063116 \pm 0.00319946$\\
+				\hline $R_{3}^{n\tilde{a}o \, amortecido}$ & \ $0.87834901 \pm 0.00455191$\\
+				\hline $R_{m\acute{e}dia}^{amortecido}$ & \ $0.78065523 \pm 0.00498189$\\
+				\hline $R_{m\acute{e}dia}^{n\tilde{a}o \, amortecido}$ & \ $0.83271210 \pm 0.00516424$\\
+				\hline
+			\end{tabular}	
+			\caption{Constantes encontradas}
+			\label{tcm}		
+		\end{table}
+		\noindent Onde $g$ é a gravidade, $q$ a raiz quadrada da razão entre a altura máxima após o quique amortecido e a mesma sem ser amortecido e $R$ coeficientes de restituição. \\
+		Além disso, relações físicas e estatísticas também foram obtidas:
+		\begin{table}[H]
+			\centering			
+			\begin{tabular}{c|c}
+  			\hline
+  			Coeficiente de Restituição & $R= \sqrt{\dfrac{h_i}{h_{i-1}}}$\\
+  			\hline Incerteza do Coeficiente de Restituição & $\sigma_R = \sqrt{{\sigma_{h_i}}^2{\left( \dfrac{1}{2\sqrt{h_i \cdot h_{i-1}}} \right) }^2+{{\sigma_{h_{i-1}}}^2{\left( -\dfrac{\sqrt{h_i}}{2\sqrt[3]{h_{i-1}^2}} \right) }^2}}$\\
+  			\hline Relação entre as alturas máximas & $q = 0.93748516 \pm 0.008289752 = \sqrt{\dfrac{h_{amortecido}}{h_{n\tilde{a}o \, amortecido}}}$\\
+  			\hline
+			\end{tabular}
+			\caption{Relações encontradas}
+			\label{tcm}		
+		\end{table}
+		\noindent Onde $h_i$ e $h_{i-1}$ são respectivamente a altura máxima posterior do quique e anterior ao quique, $\sigma_R$ a incerteza associada ao coeficiente de restituição, $\sigma_{h_i}$ e $\sigma_{h_{i-1}}$ as incertezas relacionadas às alturas antes mencionadas. \\
+		O número $q$ é a raiz quadrada da razão entre a altura máxima após um quique amortecido e a altura máxima após um quique não amortecido, sendo os dois casos lançados da mesma altura incial. Percebe-se assim que  $q<1$, logo a altura máxima amortecida, nunca será maior que a altura máxima não amortecida.
+		\newpage
+		\section{Tabelas de dados brutos}
+		
+		\begingroup
+		\centering			
+			\begin{longtable}{c|c}
+			\hline
+				$t(s)$ & \ $h(m)$ \\	  			
+  			\hline
+  				\input{Dados_1_L.txt} \\
+  			\hline				
+				\caption{Dados brutos do experimento não amortecido}		
+			\end{longtable}
+			\label{tcm}
+		\endgroup
+			\newpage
+		
+		\begingroup
+		\centering			
+			\begin{longtable}{c|c}
+			\hline
+				$t(s)$ & \ $h(m)$ \\	  			
+  			\hline
+  				\input{Dados_2_L.txt} \\
+  			\hline				
+				\caption{Dados brutos do experimento amortecido}		
+			\end{longtable}
+			\label{tcm}
+		\endgroup
+		
+		\newpage		
+		\section{Referências Bibliográficas}
+		\noindent [1] Departamento de Física da FCTUC. Capítulo IX Ajuste dos Mínimos Quadrados. Departamento de Física da FCTUC, 2010/11. \\ 
+		Disponível em: http://fisica.uc.pt/data/20102011/apontamentos/apnt\_\! 5\!\_\! 17.pdf\_\! .pdf. Acesso em: 10/02/2022 \vspace{5pt} \\
+		\noindent [3] KNIGHT, Randall D. Física - Uma Abordagem Estratégica. 2ª Edição. Local de publicação: Bookman, 2009 \vspace{5pt} \\[0pt]
+		[4] SHIMAKURA, S. A distribuição Normal. CE701 - Bioestatística Avançada I, 2005. Disponível em: http://www.leg.ufpr.br/~silvia/CE701/node36.html. Acesso em: 10/02/2022 \vspace{5pt} \\[0pt]
+		[5] CREPALDI, C. Propagação de incertezas. Caíke Crepaldi, M.Sc., 2022. \\ Disponível em: http://fap.if.usp.br/~crepaldi/posts/experimental\%20physics/propagacao-de-incertezas.\\html\#\! ref1. Acesso em: 10/02/2022 \\
+		
+		
+
+		
+\end{document}
