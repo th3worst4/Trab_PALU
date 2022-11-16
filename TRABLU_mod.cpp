@@ -6,6 +6,35 @@
 
 using namespace std;
 
+vector<float> read_b(){
+	ifstream vectorb;
+	vectorb.open("b_vector.txt");
+
+	float num;
+	vector<float> b;
+
+	while(vectorb.good()){
+		vectorb >> num;
+		b.push_back(num);
+	}
+
+	vectorb.close();
+	return b;
+}
+
+void write_x(vector<float> x){
+	ofstream vectorx("x_vector.txt");
+
+	int n = x.size();
+	for(int i=0; i<n; i++){
+		float vIn = x[i];
+		char vOut [17];
+		char* buffer = _gcvt_s(vOut,sizeof(vOut),vIn,8);
+		vectorx.write(buffer, 64);
+	}
+
+}
+
 int find_piv(vector<vector<float>> U, int n, int p){
 	float par = fabs(U[p][p]);
 	int line = p;
@@ -107,9 +136,11 @@ void print_vector(vector<float> b, int n){
 
 int main(){
 	int line;
-	
+	vector<float> b;
+
 	vector<vector<float>> A = { {3, 1, 6}, {2, 1, 3}, {1, 1, 1}};
-	vector<float> b = { 2, 7, 4};
+
+	b = read_b();
 	int n = b.size();
 
 	vector<float> c, x;
@@ -157,6 +188,8 @@ int main(){
 	cout<<endl;
 	cout<<"x="<<endl;
 	print_vector(x, n);
+
+	write_x(x);
 	
 	return 0;
 }
