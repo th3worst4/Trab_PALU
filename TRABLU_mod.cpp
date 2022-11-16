@@ -23,6 +23,30 @@ vector<float> read_b(){
 	return b;
 }
 
+vector<vector<float>> read_A(){
+	ifstream matrix_A;
+	matrix_A.open("A_matrix.txt");
+
+	vector<vector<float>> A;
+	float temp;
+	string line;
+	
+	while(getline(matrix_A, line)){
+		vector<float> templine;
+		for(char& c : line){
+			if(c=='	'){
+				continue;
+			}else{
+				templine.push_back(float(c));
+			}
+		}
+		A.push_back(templine);
+	}
+	matrix_A.close();
+	
+	return A;	
+}
+
 void write_x(vector<float> x){
 	ofstream vectorx("x_vector.txt");
 	int n = x.size();
@@ -136,9 +160,9 @@ void print_vector(vector<float> b, int n){
 int main(){
 	int line;
 	vector<float> b;
+	vector<vector<float>> A;
 
-	vector<vector<float>> A = { {3, 1, 6}, {2, 1, 3}, {1, 1, 1}};
-
+	A = read_A();
 	b = read_b();
 	int n = b.size();
 
@@ -173,22 +197,21 @@ int main(){
 	c = solve_systemL(L, b, n);
 	x = solve_systemU(U, c, n);
 	
-	cout<<"L="<<endl;
-	print_matrix(L, n);
-	cout<<endl;
-	cout<<"U="<<endl;
-	print_matrix(U, n);
-	cout<<endl;
-	cout<<"b="<<endl;
-	print_vector(b, n);
-	cout<<endl;
-	cout<<"c="<<endl;
-	print_vector(c, n);
-	cout<<endl;
-	cout<<"x="<<endl;
-	print_vector(x, n);
+	//cout<<"L="<<endl;
+	print_matrix(A, n);
+	//cout<<endl;
+	//cout<<"U="<<endl;
+	//print_matrix(U, n);
+	//cout<<endl;
+	//cout<<"b="<<endl;
+	//print_vector(b, n);
+	//cout<<endl;
+	//cout<<"c="<<endl;
+	//print_vector(c, n);
+	//cout<<endl;
+	//cout<<"x="<<endl;
+	//print_vector(x, n);
 
 	write_x(x);
-	
 	return 0;
 }
