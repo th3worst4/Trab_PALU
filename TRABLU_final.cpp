@@ -162,7 +162,6 @@ int main(){
 	vector<float> b;
 	vector<vector<float>> A;
 
-	
 	b = read_b();
 	int n = b.size();
 	A = read_A(n);
@@ -198,21 +197,6 @@ int main(){
 	c = solve_systemL(L, b, n);
 	x = solve_systemU(U, c, n);
 	
-	//cout<<"L="<<endl;
-	print_matrix(A, n);
-	//cout<<endl;
-	//cout<<"U="<<endl;
-	//print_matrix(U, n);
-	//cout<<endl;
-	//cout<<"b="<<endl;
-	//print_vector(b, n);
-	//cout<<endl;
-	//cout<<"c="<<endl;
-	//print_vector(c, n);
-	//cout<<endl;
-	//cout<<"x="<<endl;
-	//print_vector(x, n);
-
 	write_x(x);
 	return 0;
 }
