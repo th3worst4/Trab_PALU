@@ -1,10 +1,8 @@
 # Trab_PALU
 Programa de resolução de sistema PA=LU em C++
 
-A_matrix.txt deve conter os coeficientes das incógnitas
-b_vector.txt deve conter os termos independentes para cada linha de coeficentes
+"A_matrix.txt" deve conter os coeficientes das incógnitas
 
-Programa funcional, porém ainda incapaz de ler os coeficientes a partir dos arquivos.
+"b_vector.txt" deve conter os termos independentes para cada linha de coeficentes
 
-Os mesmos devem ser informados pelo código fonte e necessitando da recompilação do programa.
- 
+Ao informar os coeficientes, rode o programa "TRABLU_final.exe" e espere pelo arquivo "x_vector.txt" que conterá o vetor resposta do sistema 
