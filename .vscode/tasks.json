@@ -9,6 +9,7 @@
                 "-g",
                 "-O3",
                 "-finline-functions",
+                "-static-libstdc++",
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
