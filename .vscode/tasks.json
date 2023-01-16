@@ -9,7 +9,8 @@
                 "-g",
                 "-O3",
                 "-finline-functions",
-                "-static-libgcc-static-libstdc++",
+                "-static-libgcc",
+                "-static-libstdc++",
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
